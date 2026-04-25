@@ -52,10 +52,29 @@ pip install -r requirements.txt
    ```sh
    # 无输出日志
    # python3 -u m3u8ProxyServer.py >> /dev/null 2>&1 &
-   
+
    # 输出日志
    /usr/bin/python3 -u m3u8ProxyServer.py >> run.log 2>&1 &
    ```
+
+3. 测试代理
+
+    使用base64编码URL
+
+    ```python
+    # 生成URL
+    import base64
+    url='https://xxx.com/123.m3u8'.encode()
+    print(base64.urlsafe_b64encode(url).decode())
+    # 输出 aHR0cHM6Ly94eHguY29tLzEyMy5tM3U4
+    ```
+
+    从VLC播放器测试代理是否正常
+
+    ```bash
+    curl -v http://127.0.0.1:18080/proxy/url/aHR0cHM6Ly94eHguY29tLzEyMy5tM3U4
+    ```
+
 
 ### 2.3 监控脚本
 
