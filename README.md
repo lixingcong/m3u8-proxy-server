@@ -29,11 +29,26 @@
 
 ### 2.1 安装依赖
 
+使用[uv](https://docs.astral.sh/uv/getting-started/installation)作为包管理器。
+
 ```shell
-pip install -r requirements.txt
+# 初始化虚环境
+uv venv
+
+# 激活虚环境
+source .venv/bin/activate
+
+# 安装依赖
+uv sync
 ```
 
 ### 2.2 启动命令
+
+从example复制一份配置文件，并重命名为固定值
+
+```bash
+cp config/m3u8-proxy-server-example.json config/m3u8-proxy-server.json
+```
 
 1. gunicorn启动
 
