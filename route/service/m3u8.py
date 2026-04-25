@@ -360,12 +360,14 @@ def _check_and_process_if_final_m3u8_file(
                 )
         elif line_type == LINE_TYPE_EXTINF:
             # 视频分片
-            line_type = LINE_TYPE_NORMAL
-            if need_process is True and service_util.enable_proxy_video:
-                # 代理视频流
-                line_str = _process_uri(
-                    line_str, server_name, enable_proxy, m3u8_object, URI_TYPE_VIDEO, request_cookies
-                )
+            if not line_str.startswith('#'):
+                # 非注释行，才能作为视频URI
+                line_type = LINE_TYPE_NORMAL
+                if need_process is True and service_util.enable_proxy_video:
+                    # 代理视频流
+                    line_str = _process_uri(
+                        line_str, server_name, enable_proxy, m3u8_object, URI_TYPE_VIDEO, request_cookies
+                    )
 
         # 这一行处理完成，附加当前这一行
         new_body += line_str + "\n"
