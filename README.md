@@ -74,7 +74,7 @@ cp config/m3u8-proxy-server-example.json config/m3u8-proxy-server.json
 
 3. 测试代理
 
-    使用base64编码URL
+    使用base64编码URL，可以访问[Online Base64](https://emn178.github.io/online-tools/base64_encode.html)选择`RFC4648 URLSafe`模式生成，也可以运行以下代码生成。
 
     ```python
     # 生成URL
@@ -84,12 +84,13 @@ cp config/m3u8-proxy-server-example.json config/m3u8-proxy-server.json
     # 输出 aHR0cHM6Ly94eHguY29tLzEyMy5tM3U4
     ```
 
-    从VLC播放器测试代理是否正常
+    使用curl测试代理是否正常302跳转
 
     ```bash
-    curl -v http://127.0.0.1:18080/proxy/url/aHR0cHM6Ly94eHguY29tLzEyMy5tM3U4
+    curl -v -L http://127.0.0.1:18080/proxy/url/aHR0cHM6Ly94eHguY29tLzEyMy5tM3U4
     ```
 
+    最后，将地址粘贴到VLC播放器测试。
 
 ### 2.3 监控脚本
 
