@@ -6,7 +6,7 @@ import logging
 import server_config
 
 # 默认监听端口
-bind = f'{server_config.HOST}:{server_config.PORT}'
+bind = f'{server_config.HOST}:{server_config.PORT}' if server_config.PORT is not None else server_config.HOST
 
 daemon = True
 pidfile = 'log/gunicorn.pid'  # PID 文件
