@@ -103,6 +103,7 @@ cp config/m3u8-proxy-server-example.json config/m3u8-proxy-server.json
 
 - [接口文档](docs/接口文档.md)
 - [配置文件说明](docs/配置文件说明.md)
+- [nginx网站样例](docs/nginx.md)
 
 ### 4 其他说明
 
